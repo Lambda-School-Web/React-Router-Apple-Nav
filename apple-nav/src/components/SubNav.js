@@ -1,15 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { SubNavDiv } from "../styles/styles";
 
 function SubNav(props) {
   return (
-    <div>
+    <SubNavDiv>
       {!props.navInfo
         ? null
         : props.navInfo[1].map((value, index) => (
-            <NavLink to={`${value.split(" ").join("")}`}>{`${value}`}</NavLink>
+            <NavLink
+              className="subnav-links"
+              to={`${value.split(" ").join("")}`}
+            >{`${value}`}</NavLink>
           ))}
-    </div>
+    </SubNavDiv>
   );
 }
 

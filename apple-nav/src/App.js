@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import NavWrapper from "./components/NavWrapper";
 import Home from "./components/Home";
 import { NavInfo } from "./data/data";
+import { ContentDiv } from "./styles/styles";
+import "./App.css";
 
 function App() {
   const [navInfo] = useState(NavInfo);
@@ -11,7 +13,7 @@ function App() {
     <div>
       {navInfo ? <NavWrapper navInfo={navInfo} /> : <div>"Loading..."</div>}
 
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" render={() => <ContentDiv>Home</ContentDiv>} />
 
       {navInfo
         ? Object.keys(navInfo).map((key, index) => {
@@ -22,12 +24,14 @@ function App() {
                   key={`${index} + ${index2}`}
                   exact
                   path={`/${key}/${value.split(" ").join("")}`}
-                  render={() => <div>{value}</div>}
+                  render={() => <ContentDiv>{value}</ContentDiv>}
                 />
               );
             });
           })
         : null}
+
+      <Route path="/Support" render={() => <ContentDiv>Support</ContentDiv>} />
     </div>
   );
 }

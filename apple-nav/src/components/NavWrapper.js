@@ -1,12 +1,15 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import SubNav from "./SubNav";
-
+import { NavDiv } from "../styles/styles";
 function NavWrapper(props) {
   return (
     <>
-      <nav>
+      <NavDiv>
+        <NavLink className="nav-links" to="/">
+          Home
+        </NavLink>
         {!props.navInfo ? (
           <div>Loading...</div>
         ) : (
@@ -14,7 +17,7 @@ function NavWrapper(props) {
             <Nav key={index} navInfo={value} />
           ))
         )}
-      </nav>
+      </NavDiv>
       {!props.navInfo ? (
         <div>Loading...</div>
       ) : (
