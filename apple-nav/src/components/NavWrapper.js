@@ -3,6 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import SubNav from "./SubNav";
 import { NavDiv } from "../styles/styles";
+
 function NavWrapper(props) {
   return (
     <>

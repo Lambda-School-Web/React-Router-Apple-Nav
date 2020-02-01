@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const [navInfo] = useState(NavInfo);
-  // console.log(Object.values(navInfo));
+
   return (
     <div>
       {navInfo ? <NavWrapper navInfo={navInfo} /> : <div>"Loading..."</div>}
@@ -18,7 +18,6 @@ function App() {
       {navInfo
         ? Object.keys(navInfo).map((key, index) => {
             return Object.values(navInfo)[index].map((value, index2) => {
-              console.log(`/${key}/${value.split(" ").join("")}`);
               return (
                 <Route
                   key={`${index} + ${index2}`}
